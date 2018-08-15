@@ -52,8 +52,7 @@ Manager::Manager(Model& model) : Manager(model, true)
 {
     SimTK::Integrator *vi = new SimTK::RungeKutta2Integrator(_model->getMultibodySystem());
     vi->setAccuracy(3e-2); // reduce accuracy saves time
-    _defaultInteg.reset(vi);
-    _integ = *_defaultInteg;
+    _integ.reset(vi);
 }
 
 Manager::Manager(Model& model, const SimTK::State& state)
